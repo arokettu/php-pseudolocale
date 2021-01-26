@@ -1,7 +1,26 @@
 {
     "name": "arokettu/pseudolocale",
     "description": "Generate pseudo locale string for unicode testing and marking missing strings",
+    "keywords": ["pseudolocale", "locale", "i18n", "strings"],
     "type": "library",
     "license": "MIT",
-    "require": {}
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Arokettu\\Pseudolocale\\": "src"
+        }
+    },
+    "require": {
+        "php": "^7.1 || ^8"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "phpcompatibility/php-compatibility": "*",
+        "phpunit/phpunit": "^9.5",
+        "psy/psysh": "*",
+        "slevomat/coding-standard": "*",
+        "squizlabs/php_codesniffer": "*"
+    }
 }
