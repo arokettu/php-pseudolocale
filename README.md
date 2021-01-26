@@ -18,8 +18,8 @@ composer require arokettu/pseudolocale
 <?php
 
 echo \Arokettu\Pseudolocale\Pseudolocale::pseudolocalize(
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-); // [-- Løгєო ıρšūო ðø∤øг šıτ åოєτ, çøπšєçτєτūг åðıρıšçıπց є∤ıτ, šєð ðø єıūšოøð τєოρøг ıπçıðıðūπτ ūτ ∤åЬøгє єτ ðø∤øгє ოåցπå å∤ıզūå. --]
+    'The quick brown fox jumps over the lazy dog'
+); // [-- TႬє զūıçк Ьгøψπ ⨍øχ ʝūოρš øνєг τႬє ∤åẑγ ðøց --]
 ```
 
 ## Documentation
