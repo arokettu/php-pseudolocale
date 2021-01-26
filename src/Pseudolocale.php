@@ -29,7 +29,7 @@ final class Pseudolocale
 
     public static function pseudolocalize(
         string $string,
-        int $mode = self::REPLACE_LOWERCASE,
+        int $mode = self::REPLACE_ALL,
         string $prefix = '[-- ',
         string $postfix = ' --]'
     ): string {
