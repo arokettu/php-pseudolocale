@@ -4,6 +4,17 @@
     "keywords": ["pseudolocale", "locale", "i18n", "strings"],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://sandfox.dev/php/pseudolocale.html",
+    "authors": [{
+        "name": "Anton Smirnov",
+        "email": "sandfox@sandfox.me",
+        "homepage": "https://sandfox.me/",
+        "role": "developer"
+    }],
+    "support": {
+        "source": "https://gitlab.com/sandfox/php-pseudolocale",
+        "issues": "https://gitlab.com/sandfox/php-pseudolocale/-/issues"
+    },
     "config": {
         "sort-packages": true
     },
