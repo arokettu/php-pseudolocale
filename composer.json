@@ -13,7 +13,8 @@
     }],
     "support": {
         "source": "https://gitlab.com/sandfox/php-pseudolocale",
-        "issues": "https://gitlab.com/sandfox/php-pseudolocale/-/issues"
+        "issues": "https://gitlab.com/sandfox/php-pseudolocale/-/issues",
+        "docs": "https://php-pseudolocale.readthedocs.io/"
     },
     "config": {
         "sort-packages": true
