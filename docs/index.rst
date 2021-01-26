@@ -35,11 +35,11 @@ Examples
     // [-- ȾҢЁ ႭՄエζҚ ßЯØЩÑ ҒØΧ ꞲՄṀРႽ ØѴЁЯ ȾҢЁ ŁÅẐჄ ÐØႺ --]
 
     // Replace only lowercase letters:
-    echo Pseudolocale::pseudolocalize(strtoupper($text), Pseudolocale::REPLACE_LOWERCASE);
+    echo Pseudolocale::pseudolocalize($text, Pseudolocale::REPLACE_LOWERCASE);
     // [-- TႬє Qūıçк Bгøψπ Føχ Jūოρš Oνєг TႬє Låẑγ Døց --]
 
     // Replace only uppercase letters:
-    echo Pseudolocale::pseudolocalize(strtoupper($text), Pseudolocale::REPLACE_UPPERCASE);
+    echo Pseudolocale::pseudolocalize($text, Pseudolocale::REPLACE_UPPERCASE);
     // [-- Ⱦhe Ⴍuick ßrown Ғox Ʝumps Øver Ⱦhe Łazy Ðog --]
 
     // Redefine prefix and postfix:
