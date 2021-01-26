@@ -1,0 +1,7 @@
+{
+    "name": "arokettu/pseudolocale",
+    "description": "Generate pseudo locale string for unicode testing and marking missing strings",
+    "type": "library",
+    "license": "MIT",
+    "require": {}
+}
