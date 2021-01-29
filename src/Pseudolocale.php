@@ -12,7 +12,9 @@ final class Pseudolocale
     public const REPLACE_UPPERCASE = 0b0010;
     public const REPLACE_ALL = self::REPLACE_LOWERCASE | self::REPLACE_UPPERCASE;
 
-    public const FORMAT_STRINGS = '/%[bcdeEfFgGhHosuxX]/';
+    public const FORMAT_STRINGS =
+        /** @lang RegExp */
+        '/%(?:\d+\$)?(?:[-+ 0]|(?:\'\.))?\d*(?:\.\d+)?[bcdeEfFgGhHosuxX]/';
 
     private const LATIN_LOWERCASE_LETTERS = [
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -40,6 +42,9 @@ final class Pseudolocale
         string $postfix = ' --]',
         ?string $regexPreserve = self::FORMAT_STRINGS
     ): string {
+        $matchesCount = 0;
+        $matches = [[]];
+
         // find all substrings to preserve
         if ($regexPreserve !== null) {
             $matchesCount = preg_match_all($regexPreserve, $string, $matches);
@@ -47,9 +52,6 @@ final class Pseudolocale
             if ($matchesCount === false) {
                 throw new RuntimeException('Probably invalid regex: ' . $regexPreserve);
             }
-        } else {
-            $matchesCount = 0;
-            $matches = [[]];
         }
 
         // return early if nothing to preserve
