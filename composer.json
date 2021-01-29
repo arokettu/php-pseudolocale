@@ -30,7 +30,8 @@
         }
     },
     "require": {
-        "php": "^7.1 || ^8"
+        "php": "^7.1 || ^8",
+        "symfony/polyfill-php80": "^1.15"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",

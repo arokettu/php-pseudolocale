@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Arokettu\Pseudolocale;
 
+use RuntimeException;
+
 final class Pseudolocale
 {
     public const REPLACE_LOWERCASE = 0b0001;
     public const REPLACE_UPPERCASE = 0b0010;
     public const REPLACE_ALL = self::REPLACE_LOWERCASE | self::REPLACE_UPPERCASE;
+
+    public const FORMAT_STRINGS = '/%[bcdeEfFgGhHosuxX]/';
 
     private const LATIN_LOWERCASE_LETTERS = [
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -27,12 +31,60 @@ final class Pseudolocale
         'Ñ', 'Ø', 'Р', 'Ⴍ', 'Я', 'Ⴝ', 'Ⱦ', 'Մ', 'Ѵ', 'Щ', 'Χ', 'Ⴤ', 'Ẑ',
     ];
 
+    private const REPLACER_BASE = '~!@#$^&*()_+'; // not likely to be encountered in any translatable string
+
     public static function pseudolocalize(
         string $string,
         int $mode = self::REPLACE_ALL,
         string $prefix = '[-- ',
-        string $postfix = ' --]'
+        string $postfix = ' --]',
+        ?string $regexPreserve = self::FORMAT_STRINGS
     ): string {
+        // find all substrings to preserve
+        if ($regexPreserve !== null) {
+            $matchesCount = preg_match_all($regexPreserve, $string, $matches);
+
+            if ($matchesCount === false) {
+                throw new RuntimeException('Probably invalid regex: ' . $regexPreserve);
+            }
+        } else {
+            $matchesCount = 0;
+            $matches = [[]];
+        }
+
+        // return early if nothing to preserve
+        if ($matchesCount === 0) {
+            $string = self::doReplacements($string, $mode);
+            return $prefix . $string . $postfix;
+        }
+
+        // if we need something to preserve
+        if ($matchesCount > 0) {
+            $replacer = self::REPLACER_BASE;
+
+            while (str_contains($string, $replacer)) {
+                // grow replacer until it is not contained in the string
+                // randomize the growth to avoid patterns
+                $replacer .= str_shuffle($replacer);
+            }
+
+            // replace the patterns to be preserved with placeholder
+            $string = preg_replace($regexPreserve, $replacer, $string);
+
+            // do the replacements
+            $string = self::doReplacements($string, $mode);
+
+            // escape percent and add string params
+            $string = str_replace(['%', $replacer], ['%%', '%s'], $string);
+            $string = sprintf($string, ...$matches[0]);
+        }
+
+        // add prefix and postfix
+        return $prefix . $string . $postfix;
+    }
+
+    private static function doReplacements(string $string, int $mode = self::REPLACE_ALL)
+    {
         if ($mode & self::REPLACE_LOWERCASE) {
             $string = str_replace(self::LATIN_LOWERCASE_LETTERS, self::LATIN_LOWERCASE_REPLACEMENTS, $string);
         }
@@ -41,6 +93,6 @@ final class Pseudolocale
             $string = str_replace(self::LATIN_UPPERCASE_LETTERS, self::LATIN_UPPERCASE_REPLACEMENTS, $string);
         }
 
-        return $prefix . $string . $postfix;
+        return $string;
     }
 }

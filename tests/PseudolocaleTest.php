@@ -53,4 +53,15 @@ class PseudolocaleTest extends TestCase
             Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', '')
         );
     }
+
+    public function testPreserveFormatStrings()
+    {
+        $string = 'The %1$q brown %f jumps over the lazy %5.2d';
+        $expected = 'TႬє %1$q Ьгøψπ %f ʝūოρš øνєг τႬє ∤åẑγ %5.2d';
+
+        self::assertEquals(
+            $expected,
+            Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', '')
+        );
+    }
 }
