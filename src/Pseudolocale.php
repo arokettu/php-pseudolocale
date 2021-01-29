@@ -14,7 +14,7 @@ final class Pseudolocale
 
     public const FORMAT_STRINGS =
         /** @lang RegExp */
-        '/%(?:\d+\$)?(?:[-+ 0]|(?:\'\.))?\d*(?:\.\d+)?[bcdeEfFgGhHosuxX]/';
+        '/%(?:\d+\$)?(?:[-+ 0]|(?:\'.))?\d*(?:\.\d+)?[bcdeEfFgGhHosuxX]/';
 
     private const LATIN_LOWERCASE_LETTERS = [
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',

@@ -56,12 +56,47 @@ class PseudolocaleTest extends TestCase
 
     public function testPreserveFormatStrings()
     {
-        $string = 'The %1$g brown %f jumps over the lazy %5.2d';
+        $string   = 'The %1$g brown %f jumps over the lazy %5.2d';
         $expected = 'ȾႬє %1$g Ьгøψπ %f ʝūოρš øνєг τႬє ∤åẑγ %5.2d';
 
         self::assertEquals(
             $expected,
             Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', '')
+        );
+
+        $string   = "AAAbbbccc%2$'w14sghfdghsjk543%1$12.4dbashf";
+        $expected = "ÅÅÅЬЬЬççç%2$'w14sցႬ⨍ðցႬšʝк543%1$12.4dЬåšႬ⨍";
+
+        self::assertEquals(
+            $expected,
+            ($string = Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', ''))
+        );
+
+        // pass the previous string through sprintf
+        $string   = sprintf($string, 64, 'str');
+        $expected = 'ÅÅÅЬЬЬçççwwwwwwwwwwwstrցႬ⨍ðցႬšʝк543          64ЬåšႬ⨍';
+
+        self::assertEquals($expected, $string);
+    }
+
+    public function testPreserveOtherPatterns()
+    {
+        // marker style
+        $string   = 'The quick brown %vulpine% jumps over the lazy %canine%';
+        $expected = 'ȾႬє զūıçк Ьгøψπ %vulpine% ʝūოρš øνєг τႬє ∤åẑγ %canine%';
+
+        self::assertEquals(
+            $expected,
+            Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', '', '/%\w+%/')
+        );
+
+        // ruby substitution style
+        $string   = 'The quick brown #{vulpine} jumps over the lazy #{canine}';
+        $expected = 'ȾႬє զūıçк Ьгøψπ #{vulpine} ʝūოρš øνєг τႬє ∤åẑγ #{canine}';
+
+        self::assertEquals(
+            $expected,
+            Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', '', '/#{\w+}/')
         );
     }
 }
