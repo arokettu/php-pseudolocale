@@ -19,7 +19,7 @@ composer require arokettu/pseudolocale
 
 echo \Arokettu\Pseudolocale\Pseudolocale::pseudolocalize(
     'The quick brown fox jumps over the lazy dog'
-); // [-- TႬє զūıçк Ьгøψπ ⨍øχ ʝūოρš øνєг τႬє ∤åẑγ ðøց --]
+); // [-- ȾႬє զūıçк Ьгøψπ ⨍øχ ʝūოρš øνєг τႬє ∤åẑγ ðøց --]
 ```
 
 ## Documentation

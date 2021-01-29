@@ -48,6 +48,20 @@ Examples
     echo Pseudolocale::pseudolocalize($text, prefix: '<', postfix: '>');
     // <ȾႬє Ⴍūıçк ßгøψπ Ғøχ Ʝūოρš Øνєг ȾႬє Łåẑγ Ðøց>
 
+    // Since 1.1 the library does not replace sprintf replacement patterns by default:
+    echo Pseudolocale::pseudolocalize("It's %d to go alone. Take %s with you");
+    // [-- エτ'š %d τø ցø å∤øπє. Ⱦåкє %s ψıτႬ γøū --]
+    // You can use your own patterns
+    echo Pseudolocale::pseudolocalize(
+        'No, %username%! I am your %relative%!',
+        Pseudolocale::REPLACE_ALL,
+        '[-- ', ' --]',
+        '/%\w+%/'
+    );
+    // PHP 8 is preferred:
+    echo Pseudolocale::pseudolocalize('No, %username%! I am your %relative%!', regexPreserve: '/%\w+%/');
+    // [-- Ñø, %username%! エ åო γøūг %relative%! --]
+
 License
 =======
 
