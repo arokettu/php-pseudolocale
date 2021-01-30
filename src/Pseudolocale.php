@@ -64,7 +64,7 @@ final class Pseudolocale
         if ($matchesCount > 0) {
             $replacer = self::REPLACER_BASE;
 
-            while (str_contains($string, $replacer)) {
+            while (strpos($string, $replacer) !== false) {
                 // grow replacer until it is not contained in the string
                 // randomize the growth to avoid patterns
                 $replacer .= str_shuffle($replacer);
