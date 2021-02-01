@@ -27,7 +27,7 @@ cache:
 test-7.1:
   extends: .test
   stage: test
-  image: php:7.4
+  image: php:7.1
 
 # latest PHP 7
 test-7:
