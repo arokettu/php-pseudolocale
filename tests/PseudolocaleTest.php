@@ -6,6 +6,7 @@ namespace Arokettu\Pseudolocale\Tests;
 
 use Arokettu\Pseudolocale\Pseudolocale;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class PseudolocaleTest extends TestCase
 {
@@ -97,6 +98,22 @@ class PseudolocaleTest extends TestCase
         self::assertEquals(
             $expected,
             Pseudolocale::pseudolocalize($string, Pseudolocale::REPLACE_ALL, '', '', '/#{\w+}/')
+        );
+    }
+
+    public function testInvalidRegex()
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Probably invalid regex: /--');
+
+        @Pseudolocale::pseudolocalize('', 0, '', '', '/--');
+    }
+
+    public function testReplacerConflict()
+    {
+        self::assertEquals(
+            '[-- τєšτ ~!@#$^&*()_+ %d ~!@#$^&*()_+ %s ~!@#$^&*()_+ τєšτ --]',
+            Pseudolocale::pseudolocalize('test ~!@#$^&*()_+ %d ~!@#$^&*()_+ %s ~!@#$^&*()_+ test')
         );
     }
 }
