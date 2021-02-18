@@ -3,6 +3,7 @@
 [![Packagist](https://img.shields.io/packagist/v/arokettu/pseudolocale.svg?style=flat-square)](https://packagist.org/packages/arokettu/pseudolocale)
 [![Packagist](https://img.shields.io/packagist/l/arokettu/pseudolocale.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/sandfox/php-pseudolocale/master.svg?style=flat-square)](https://gitlab.com/sandfox/php-pseudolocale/-/pipelines)
+[![Codecov](https://img.shields.io/codecov/c/gl/sandfox/php-pseudolocale?style=flat-square)](https://codecov.io/gl/sandfox/php-pseudolocale/)
 
 Generates pseudo localization strings.
 
