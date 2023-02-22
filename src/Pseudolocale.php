@@ -71,6 +71,7 @@ final class Pseudolocale
             }
 
             // replace the patterns to be preserved with placeholder
+            // phpcs:ignore PHPCS_SecurityAudit.BadFunctions.PregReplace.PregReplaceDyn
             $string = preg_replace($regexPreserve, $replacer, $string);
 
             // do the replacements
@@ -85,7 +86,7 @@ final class Pseudolocale
         return $prefix . $string . $postfix;
     }
 
-    private static function doReplacements(string $string, int $mode = self::REPLACE_ALL)
+    private static function doReplacements(string $string, int $mode = self::REPLACE_ALL): string
     {
         if ($mode & self::REPLACE_LOWERCASE) {
             $string = str_replace(self::LATIN_LOWERCASE_LETTERS, self::LATIN_LOWERCASE_REPLACEMENTS, $string);

@@ -12,7 +12,7 @@ class PseudolocaleTest extends TestCase
 {
     private const STRING = 'The Quick Brown Fox Jumps Over The Lazy Dog';
 
-    public function testSimpleCall()
+    public function testSimpleCall(): void
     {
         self::assertEquals(
             '[-- ȾႬє Ⴍūıçк ßгøψπ Ғøχ Ʝūოρš Øνєг ȾႬє Łåẑγ Ðøց --]',
@@ -20,7 +20,7 @@ class PseudolocaleTest extends TestCase
         );
     }
 
-    public function testLowercase()
+    public function testLowercase(): void
     {
         self::assertEquals(
             '[-- TႬє Qūıçк Bгøψπ Føχ Jūოρš Oνєг TႬє Låẑγ Døց --]',
@@ -28,7 +28,7 @@ class PseudolocaleTest extends TestCase
         );
     }
 
-    public function testUppercase()
+    public function testUppercase(): void
     {
         self::assertEquals(
             '[-- Ⱦhe Ⴍuick ßrown Ғox Ʝumps Øver Ⱦhe Łazy Ðog --]',
@@ -36,7 +36,7 @@ class PseudolocaleTest extends TestCase
         );
     }
 
-    public function testPrefixPostfix()
+    public function testPrefixPostfix(): void
     {
         self::assertEquals(
             '<ȾႬє Ⴍūıçк ßгøψπ Ғøχ Ʝūოρš Øνєг ȾႬє Łåẑγ Ðøց>',
@@ -44,7 +44,7 @@ class PseudolocaleTest extends TestCase
         );
     }
 
-    public function testNonAscii()
+    public function testNonAscii(): void
     {
         // non ascii and non letters are not replaced
         $string = '133 ťéşť тест δοκιμή';
@@ -55,7 +55,7 @@ class PseudolocaleTest extends TestCase
         );
     }
 
-    public function testPreserveFormatStrings()
+    public function testPreserveFormatStrings(): void
     {
         $string   = 'The %1$g brown %f jumps over the lazy %5.2d';
         $expected = 'ȾႬє %1$g Ьгøψπ %f ʝūოρš øνєг τႬє ∤åẑγ %5.2d';
@@ -80,7 +80,7 @@ class PseudolocaleTest extends TestCase
         self::assertEquals($expected, $string);
     }
 
-    public function testPreserveOtherPatterns()
+    public function testPreserveOtherPatterns(): void
     {
         // marker style
         $string   = 'The quick brown %vulpine% jumps over the lazy %canine%';
@@ -101,7 +101,7 @@ class PseudolocaleTest extends TestCase
         );
     }
 
-    public function testInvalidRegex()
+    public function testInvalidRegex(): void
     {
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Probably invalid regex: /--');
@@ -109,7 +109,7 @@ class PseudolocaleTest extends TestCase
         @Pseudolocale::pseudolocalize('', 0, '', '', '/--');
     }
 
-    public function testReplacerConflict()
+    public function testReplacerConflict(): void
     {
         self::assertEquals(
             '[-- τєšτ ~!@#$^&*()_+ %d ~!@#$^&*()_+ %s ~!@#$^&*()_+ τєšτ --]',
