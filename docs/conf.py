@@ -8,10 +8,10 @@ from conf_project import *
 author = 'Anton Smirnov'
 copyright = '{} {}'.format(datetime.now().year, author)
 language = 'en'
-html_sidebars = {
-    "**": ["navbar-logo.html", "rtd-version.html", "icon-links.html", "sbt-sidebar-nav.html", "sidebar-ethical-ads.html"]
-}
 
 html_title = project
 html_theme = 'sphinx_book_theme'
 templates_path = ["_templates"]
+html_sidebars = {
+    "**": ["navbar-logo.html", "rtd-version.html", "icon-links.html", "sbt-sidebar-nav.html", "sidebar-ethical-ads.html"]
+}
