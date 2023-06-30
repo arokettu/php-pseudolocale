@@ -10,8 +10,17 @@ copyright = '{} {}'.format(datetime.now().year, author)
 language = 'en'
 
 html_title = project
-html_theme = 'sphinx_book_theme'
+html_theme = 'furo'
 templates_path = ["_templates"]
 html_sidebars = {
-    "**": ["navbar-logo.html", "rtd-version.html", "icon-links.html", "sbt-sidebar-nav.html"]
+    "**": [
+        "sidebar/brand.html",
+        "rtd-version.html",
+        "sidebar/search.html",
+        "sidebar/scroll-start.html",
+        "sidebar/navigation.html",
+        "sidebar/ethical-ads.html",
+        "sidebar/scroll-end.html",
+        "sidebar/variant-selector.html",
+    ]
 }

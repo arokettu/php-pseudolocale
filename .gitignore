@@ -3,4 +3,4 @@
 /composer.lock
 /.phpunit.result.cache
 /reports
-/docs/index.html
+/docs/build
