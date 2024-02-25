@@ -1,19 +1,21 @@
 # Changelog
 
-## 1.1.1
+## 1.x
 
-_Jan 30, 2021_
+### 1.1.1
+
+*Jan 30, 2021*
 
 * Polyfill dependency dropped
 
-## 1.1.0
+### 1.1.0
 
-_Jan 30, 2021_
+*Jan 30, 2021*
 
 * Pattern preservation feature
 
-## 1.0.0
+### 1.0.0
 
-_Jan 26, 2021_
+*Jan 26, 2021*
 
 Initial release
