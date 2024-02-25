@@ -2,6 +2,12 @@
 
 ## 1.x
 
+### 1.1.2
+
+*Feb 25, 2024*
+
+* Remove dev files from the distribution
+
 ### 1.1.1
 
 *Jan 30, 2021*
