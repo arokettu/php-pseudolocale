@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Arokettu\Pseudolocale;
 
-use RuntimeException;
+use InvalidArgumentException;
 
 final class Pseudolocale
 {
@@ -50,7 +50,7 @@ final class Pseudolocale
             $matchesCount = preg_match_all($regexPreserve, $string, $matches);
 
             if ($matchesCount === false) {
-                throw new RuntimeException('Probably invalid regex: ' . $regexPreserve);
+                throw new InvalidArgumentException(sprintf('Probably invalid regex: "%s"', $regexPreserve));
             }
         }
 

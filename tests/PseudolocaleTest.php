@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Arokettu\Pseudolocale\Tests;
 
 use Arokettu\Pseudolocale\Pseudolocale;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use RuntimeException;
 
 class PseudolocaleTest extends TestCase
 {
@@ -103,8 +103,8 @@ class PseudolocaleTest extends TestCase
 
     public function testInvalidRegex(): void
     {
-        $this->expectException(RuntimeException::class);
-        $this->expectExceptionMessage('Probably invalid regex: /--');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Probably invalid regex: "/--"');
 
         @Pseudolocale::pseudolocalize('', 0, '', '', '/--');
     }
