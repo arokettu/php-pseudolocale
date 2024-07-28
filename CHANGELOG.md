@@ -2,6 +2,12 @@
 
 ## 1.x
 
+### 1.1.3
+
+*Jul 28, 2024*
+
+* Throw `InvalidArgumentException` instead of `RuntimeException` for an invalid regex 
+
 ### 1.1.2
 
 *Feb 25, 2024*
