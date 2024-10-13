@@ -1,3 +1,3 @@
-project = 'CHANGEME'
-repo = 'CHANGEME'
-packagist = False
+project = 'Pseudolocale'
+repo = 'php-pseudolocale'
+packagist = 'arokettu/pseudolocale'
