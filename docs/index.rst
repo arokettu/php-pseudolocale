@@ -1,7 +1,7 @@
 Pseudolocale
 ############
 
-|Packagist| |GitLab| |GitHub| |Bitbucket| |Gitea|
+|Packagist| |GitLab| |GitHub| |Codeberg| |Gitea|
 
 The library is used to generate readable strings for ASCII latin to test Unicode support and/or detect missing translation strings.
 The result is a mix of extended latin, cyrillic, greek, armenian, georgian, japanese scripts with some math symbols.
@@ -37,7 +37,7 @@ See LICENSE.md
    :target:     https://github.com/arokettu/php-pseudolocale
 .. |GitLab|     image:: https://img.shields.io/badge/get%20on-GitLab-informational.svg?style=flat-square&logo=gitlab
    :target:     https://gitlab.com/sandfox/php-pseudolocale
-.. |Bitbucket|  image:: https://img.shields.io/badge/get%20on-Bitbucket-informational.svg?style=flat-square&logo=bitbucket
-   :target:     https://bitbucket.org/sandfox/php-pseudolocale
+.. |Codeberg|   image:: https://img.shields.io/badge/get%20on-Codeberg-informational.svg?style=flat-square&logo=codeberg
+   :target:     https://codeberg.org/sandfox/php-pseudolocale
 .. |Gitea|      image:: https://img.shields.io/badge/get%20on-Gitea-informational.svg?style=flat-square&logo=gitea
    :target:     https://sandfox.org/sandfox/php-pseudolocale
